@@ -14,18 +14,16 @@ for _ in range(sum(map(int, input().split()))):
     P[a] = b
 
 queue = [(i,1) for i in range(2,8)]
-check = [0] * 101
+check = [0] * 100
 check[1] = 1
-while len(queue) != 0:
+ans = 101
+while queue:
     n, cnt = queue.pop(0)
-    if check[n] == 0:
-        
-        check[n] = 1
-        queue.extend([(n+i,cnt+1) for i in range(1,7)])
-        
-        if n in P.keys():
-            queue.append((P[n], cnt))
-        
-        if n==100:
-            print(cnt)
-            break
+    for i in range(1, 7):
+        if n+i>100: continue
+        if n+i==100: ans = min(ans,cnt+1); continue
+        if check[n+i]==0:
+            check[n+i]=1
+            if n+i in P.keys(): queue.append((P[n+1], cnt))
+            else: queue.append((n+i, cnt+1))
+print(ans)
