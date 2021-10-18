@@ -31,3 +31,30 @@ for c in C:
     A.append(abs(N-a)+p)
 
 print(min(A))
+
+
+'''
+N = int(input())
+M = int(input())
+B = list(map(int, input().split())) if M!=0 else 0
+
+if M == 0:
+    print(abs(N-100))
+
+else:
+
+    answer = 10**len(str(N))
+    for i in range(10**len(str(N))*2):
+        
+        b = False
+        for d in str(i):
+            if int(d) in B:
+                b = True
+                break
+
+        if b: continue
+
+        answer = min(answer, abs(N-i)+len(str(i)))
+
+    print(min(answer, abs(N-100))
+'''
