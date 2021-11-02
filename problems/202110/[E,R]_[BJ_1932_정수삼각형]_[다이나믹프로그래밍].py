@@ -1,5 +1,5 @@
-# BJ 11053 가장 긴 증가하는 부분 수열 <다이나믹 프로그래밍>
-# https://www.acmicpc.net/problem/11053
+# BJ 1932 정수 삼각형 <다이나믹 프로그래밍>
+# https://www.acmicpc.net/problem/1932
 # 시간 :15
 # 문제 리뷰 : E, R
 # 회고 : 
