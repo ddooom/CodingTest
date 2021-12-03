@@ -4,6 +4,33 @@
 # 문제 리뷰 : [문제 리뷰]
 # 회고 : [회고]
 
+def tracking(root, nodes):
+    sep_idx = len(list(filter(lambda x: x < root, nodes)))
+    left = nodes[:sep_idx]
+    right = nodes[sep_idx:]
+
+    if len(left) > 0:
+        G[root][0] = left[0]
+        tracking(left[0], left[1:])
+    if len(right) > 0:
+        G[root][1] = right[0]
+        tracking(right[0], right[1:])
+
+def back(root):
+    left = G[root][0]
+    right = G[root][1]
+    if left != 0:
+        back(left)
+    if right != 0:
+        back(right)
+    print(root)
+
+
 import sys
-a = [*sys.stdin.readlines().strip()
-print(a)
+sys.setrecursionlimit(100000)
+N = list(map(int, [n[:-1] for n in sys.stdin.readlines()]))
+G = {n: [0, 0] for n in N}
+
+root = N[0]
+tracking(root, N[1:])
+back(root)
